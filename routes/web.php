@@ -11,6 +11,9 @@
 |
 */
 
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -29,7 +32,12 @@ Route::get('/home', 'HomeController@index');
 
 
 
-Route::resource('admin/users', 'AdminUserController');
+Route::resource('admin/users', 'AdminUserController', ['names'=> [
+    
+    'index'=>'users',
+    'create'=> 'create_user',
+    ]
+]);
 
 Route::get('/admin', function () {
     
