@@ -32,10 +32,13 @@ Route::get('/home', 'HomeController@index');
 
 
 
-Route::resource('admin/users', 'AdminUserController', ['names'=> [
+Route::resource('admin/users', 'AdminUserController', [
     
-    'index'=>'users',
-    'create'=> 'create_user',
+    'names'=> [
+        'index'=>'admin.users.index',
+        'create'=>'admin.users.create',
+        'store'=>'admin.users.store',
+        'edit'=>'admin.users.edit'
     ]
 ]);
 
